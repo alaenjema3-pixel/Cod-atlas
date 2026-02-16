@@ -3,51 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - ATLAS COD AFFILIATES</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Admin Dashboard</h1>
-        <nav>
-            <ul>
-                <li><a href="#categories">Categories</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#cities">Cities</a></li>
-                <li><a href="#affiliates">Affiliates</a></li>
-                <li><a href="#orders">Orders</a></li>
-                <li><a href="#withdrawals">Withdrawals</a></li>
-            </ul>
+    <div class="container">
+        <h1 class="mt-5">Admin Dashboard</h1>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#affiliates">Manage Affiliates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categories">Manage Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Manage Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cities">Manage Cities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#orders">Manage Orders</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#withdrawals">Manage Withdrawals</a></li>
+                </ul>
+            </div>
         </nav>
-    </header>
-    <main>
-        <section id="categories">
-            <h2>Manage Categories</h2>
-            <!-- Add your category management UI here -->
-        </section>
-        <section id="products">
-            <h2>Manage Products</h2>
-            <!-- Add your product management UI here -->
-        </section>
-        <section id="cities">
-            <h2>Manage Cities</h2>
-            <!-- Add your city management UI here -->
-        </section>
-        <section id="affiliates">
+
+        <div id="affiliates" class="mt-4">
             <h2>Manage Affiliates</h2>
-            <!-- Add your affiliate management UI here -->
-        </section>
-        <section id="orders">
+            <div class="mb-3">
+                <button class="btn btn-primary">Add New Affiliate</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Content for Affiliates -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="categories" class="mt-4">
+            <h2>Manage Categories</h2>
+            <div class="mb-3">
+                <button class="btn btn-primary">Add New Category</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Content for Categories -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="products" class="mt-4">
+            <h2>Manage Products</h2>
+            <div class="mb-3">
+                <button class="btn btn-primary">Add New Product</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Content for Products -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="cities" class="mt-4">
+            <h2>Manage Cities</h2>
+            <div class="mb-3">
+                <button class="btn btn-primary">Add New City</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Content for Cities -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="orders" class="mt-4">
             <h2>Manage Orders</h2>
-            <!-- Add your order management UI here -->
-        </section>
-        <section id="withdrawals">
+            <div class="mb-3">
+                <button class="btn btn-primary">View Orders</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Content for Orders -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="withdrawals" class="mt-4">
             <h2>Manage Withdrawals</h2>
-            <!-- Add your withdrawal management UI here -->
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 ATLAS COD AFFILIATES. All Rights Reserved.</p>
-    </footer>
+            <div class="mb-3">
+                <button class="btn btn-primary">View Withdrawals</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Affiliate</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Content for Withdrawals -->
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
