@@ -1,1 +1,41 @@
-<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Affiliate Registration for ATLAS COD AFFILIATES</title>\n</head>\n<body>\n    <h1>ATLAS COD AFFILIATES Registration Form</h1>\n    <form action="#">\n        <label for="name">Full Name:</label><br>\n        <input type="text" id="name" name="name" required><br><br>\n        <label for="email">Email:</label><br>\n        <input type="email" id="email" name="email" required><br><br>\n        <label for="username">Username:</label><br>\n        <input type="text" id="username" name="username" required><br><br>\n        <label for="password">Password:</label><br>\n        <input type="password" id="password" name="password" required><br><br>\n        <label for="confirm_password">Confirm Password:</label><br>\n        <input type="password" id="confirm_password" name="confirm_password" required><br><br>\n        <input type="submit" value="Register">\n    </form>\n</body>\n</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Registration</title>
+    <script>
+        function validateForm() {
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+
+            if (!fullName || !email || !phone || !password) {
+                alert('Please fill in all fields.');
+                return false;
+            }
+
+            // Store data in localStorage
+            const userData = { fullName, email, phone, password };
+            localStorage.setItem('affiliateData', JSON.stringify(userData));
+            alert('Registration successful!');
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Affiliate Registration</h1>
+    <form onsubmit="return validateForm()">
+        <label for="fullName">Full Name:</label><br>
+        <input type="text" id="fullName" name="fullName"><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="phone">Phone:</label><br>
+        <input type="tel" id="phone" name="phone"><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
