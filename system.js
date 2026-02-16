@@ -1,116 +1,74 @@
-'use strict';
+// system.js
 
-// Core functionalities for ATLAS COD AFFILIATES platform
-
-// 1. Admin Auto-Creation
-const admin = {
-    username: 'admin',
-    password: 'admin123', // For demonstration. Use hashed password in production.
-};
-
-const createAdmin = () => {
-    // Logic to create an admin account in the database
-    console.log('Admin account created:', admin);
-};
-
-// 2. Authentication
-const authenticate = (username, password) => {
-    // Logic to authenticate users
-    if (username === admin.username && password === admin.password) {
-        console.log('Authentication successful');
-        return true;
+// Initialize LocalStorage Data
+const initializeData = () => {
+    if (!localStorage.getItem('admins')) {
+        const admins = [{ id: 1, username: 'admin', password: 'admin123' }];
+        localStorage.setItem('admins', JSON.stringify(admins));
     }
-    console.log('Authentication failed');
-    return false;
+    if (!localStorage.getItem('categories')) localStorage.setItem('categories', JSON.stringify([]));
+    if (!localStorage.getItem('products')) localStorage.setItem('products', JSON.stringify([]));
+    if (!localStorage.getItem('cities')) localStorage.setItem('cities', JSON.stringify([]));
+    if (!localStorage.getItem('orders')) localStorage.setItem('orders', JSON.stringify([]));
+    if (!localStorage.getItem('withdrawals')) localStorage.setItem('withdrawals', JSON.stringify([]));
+    if (!localStorage.getItem('affiliates')) localStorage.setItem('affiliates', JSON.stringify([]));
 };
 
-// 3. Category Management
-let categories = [];
+// Authentication
+const authenticateUser = (username, password) => {
+    const admins = JSON.parse(localStorage.getItem('admins'));
+    return admins.find(admin => admin.username === username && admin.password === password);
+};
 
-const addCategory = (name) => {
-    categories.push(name);
-    console.log('Category added:', name);
+// Categories Management
+const addCategory = (categoryName) => {
+    const categories = JSON.parse(localStorage.getItem('categories'));
+    categories.push({ id: categories.length + 1, name: categoryName });
+    localStorage.setItem('categories', JSON.stringify(categories));
 };
 
 const getCategories = () => {
-    return categories;
+    return JSON.parse(localStorage.getItem('categories'));
 };
 
-// 4. Product Management
-let products = [];
-
+// Product Management
 const addProduct = (product) => {
-    products.push(product);
-    console.log('Product added:', product);
+    const products = JSON.parse(localStorage.getItem('products'));
+    products.push({ id: products.length + 1, ...product });
+    localStorage.setItem('products', JSON.stringify(products));
 };
 
 const getProducts = () => {
-    return products;
+    return JSON.parse(localStorage.getItem('products'));
 };
 
-// 5. City Management
-let cities = [];
-
-const addCity = (city) => {
-    cities.push(city);
-    console.log('City added:', city);
+// City Management
+const addCity = (cityName) => {
+    const cities = JSON.parse(localStorage.getItem('cities'));
+    cities.push({ id: cities.length + 1, name: cityName });
+    localStorage.setItem('cities', JSON.stringify(cities));
 };
 
-const getCities = () => {
-    return cities;
-};
-
-// 6. Order Management
-let orders = [];
-
+// Order System
 const createOrder = (order) => {
-    orders.push(order);
-    console.log('Order created:', order);
+    const orders = JSON.parse(localStorage.getItem('orders'));
+    orders.push({ id: orders.length + 1, ...order });
+    localStorage.setItem('orders', JSON.stringify(orders));
 };
 
-const getOrders = () => {
-    return orders;
+// Withdrawal System
+const requestWithdrawal = (amount) => {
+    const withdrawals = JSON.parse(localStorage.getItem('withdrawals'));
+    withdrawals.push({ id: withdrawals.length + 1, amount });
+    localStorage.setItem('withdrawals', JSON.stringify(withdrawals));
 };
 
-// 7. Withdrawal Management
-let withdrawals = [];
-
-const addWithdrawal = (withdrawal) => {
-    withdrawals.push(withdrawal);
-    console.log('Withdrawal added:', withdrawal);
-};
-
-const getWithdrawals = () => {
-    return withdrawals;
-};
-
-// 8. Affiliate Management
-let affiliates = [];
-
+// Affiliate Management
 const addAffiliate = (affiliate) => {
-    affiliates.push(affiliate);
-    console.log('Affiliate added:', affiliate);
+    const affiliates = JSON.parse(localStorage.getItem('affiliates'));
+    affiliates.push({ id: affiliates.length + 1, ...affiliate });
+    localStorage.setItem('affiliates', JSON.stringify(affiliates));
 };
 
-const getAffiliates = () => {
-    return affiliates;
-};
-
-// Initialize admin account
-createAdmin();
-
-module.exports = {
-    authenticate,
-    addCategory,
-    getCategories,
-    addProduct,
-    getProducts,
-    addCity,
-    getCities,
-    createOrder,
-    getOrders,
-    addWithdrawal,
-    getWithdrawals,
-    addAffiliate,
-    getAffiliates,
-};
+// Initialize Data
+initializeData();
