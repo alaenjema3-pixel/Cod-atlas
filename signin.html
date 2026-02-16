@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - ATLAS COD AFFILIATES</title>
+    <title>Login</title>
 </head>
 <body>
-    <h1>Login to ATLAS COD AFFILIATES</h1>
-    <form action="/login" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-
-        <label for="password">Password:</label>
+    <h2>Login Form</h2>
+    <form id="loginForm" action="/authenticate" method="POST">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br><br>
-
-        <input type="radio" id="admin" name="role" value="admin" required>
-        <label for="admin">Admin</label><br>
-
-        <input type="radio" id="affiliate" name="role" value="affiliate">
-        <label for="affiliate">Affiliate</label><br><br>
-
-        <input type="submit" value="Login">
+        <button type="submit">Login</button>
     </form>
+
+    <script>
+        document.getElementById('loginForm').onsubmit = function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Example authentication logic
+            const adminUsers = ['admin1', 'admin2']; // List of admin usernames
+            const affiliateUsers = ['affiliate1', 'affiliate2']; // List of affiliate usernames
+
+            // Validate login credentials
+            if (adminUsers.includes(username) && password === 'adminPassword') {
+                alert('Welcome Admin!');
+                // Proceed with admin user login
+                window.location.href = '/admin/dashboard';
+            } else if (affiliateUsers.includes(username) && password === 'affiliatePassword') {
+                alert('Welcome Affiliate!');
+                // Proceed with affiliate user login
+                window.location.href = '/affiliate/dashboard';
+            } else {
+                alert('Invalid username or password.');
+            }
+        };
+    </script>
 </body>
 </html>
